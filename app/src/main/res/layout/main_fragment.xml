@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_launcher_foreground">
+
+        <com.ekn.gruzer.gaugelibrary.FullGauge
+            android:id="@+id/fullGauge"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="31dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@drawable/circular"
+                app:backgroundTint="@color/black"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="335dp" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circular"
+                android:layout_marginStart="@dimen/_10sdp"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="335dp" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circular"
+                android:layout_marginStart="@dimen/_10sdp"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="335dp" />
+
+            <Button
+                android:id="@+id/transport"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circular"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:backgroundTint="@color/colorAccent"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="335dp" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circular"
+                android:layout_marginStart="@dimen/_10sdp"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="335dp" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>
