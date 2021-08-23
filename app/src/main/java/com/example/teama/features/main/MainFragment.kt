@@ -5,17 +5,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.ekn.gruzer.gaugelibrary.Range
 import com.example.teama.AndroidApplication
 import com.example.teama.R
 import com.example.teama.core.extension.appContext
 import com.example.teama.core.platform.BaseFragment
 import com.example.teama.databinding.MainFragmentBinding
+import com.example.teama.features.Energy.EnergyActivity
+import com.example.teama.features.Energy.EnergyFragment
+import com.example.teama.features.Recycle.RecycleActivity
+import com.example.teama.features.database.RecycleDatabase
+import com.example.teama.features.home.HomeFragment
 import com.example.teama.features.transport.TransportActivity
+import com.example.teama.features.transport.TransportFragment
 
 class MainFragment: BaseFragment() {
 
     private lateinit var binding: MainFragmentBinding
+    private lateinit var viewModel: MainViewModel
     override fun layoutId() = R.layout.main_fragment
 
     override fun onCreateView(
@@ -23,7 +35,28 @@ class MainFragment: BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        // Main layout data binding
         binding = MainFragmentBinding.inflate(inflater, container, false)
+
+        val dataSource = RecycleDatabase.getInstance(AndroidApplication.getContext()).recycleDatabaseDao()
+
+        val viewModelFactory = MainViewModelFactory(dataSource)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.update()
+
+       binding.money.text = AndroidApplication.money.toString()
+       binding.point.text = AndroidApplication.point.toString()
 
         binding.transport.setOnClickListener {
             val intent = TransportActivity.callIntent(requireContext())
@@ -31,11 +64,22 @@ class MainFragment: BaseFragment() {
             startActivity(intent)
         }
 
-        setRange()
+        binding.power.setOnClickListener {
+            val intent = EnergyActivity.callIntent(requireContext())
 
-        return binding.root
+            startActivity(intent)
+        }
+
+        binding.rc.setOnClickListener {
+            val intent = RecycleActivity.callIntent(requireContext())
+
+            startActivity(intent)
+        }
+
+        setRange()
     }
 
+    //co2 gauge setting
     private fun setRange() {
         val rangeGreen = Range()
         rangeGreen.color = Color.parseColor("#ce0000")
@@ -59,7 +103,8 @@ class MainFragment: BaseFragment() {
 
         binding.fullGauge.minValue = 0.0
         binding.fullGauge.maxValue = 100.0
-        binding.fullGauge.value = 40.0
+        binding.fullGauge.value = AndroidApplication.co2!!
+
 
     }
 }

@@ -29,6 +29,17 @@
 
         </activity>
 
+        <activity android:name=".features.Energy.EnergyActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+
+        <activity android:name=".features.Recycle.RecycleActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+
+
 
     </application>
 

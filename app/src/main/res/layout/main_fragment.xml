@@ -4,20 +4,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
 
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ic_launcher_foreground">
+        android:background="@drawable/tttt"
+        >
 
-        <com.ekn.gruzer.gaugelibrary.FullGauge
-            android:id="@+id/fullGauge"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="34dp"
-            android:layout_marginEnd="31dp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="-21dp"
+            android:layout_marginEnd="2dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="137dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/fullGauge"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginBottom="107dp"
+                    android:text="CO2"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <com.ekn.gruzer.gaugelibrary.FullGauge
+                    android:id="@+id/fullGauge"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="34dp"
+                    android:layout_marginEnd="31dp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/ic_baseline_attach_money_24"
+                    app:tint="#ffd700"/>
+
+                <TextView
+                    android:id="@+id/money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:textColor="#008000"
+                    android:text="P"/>
+
+                <TextView
+                    android:id="@+id/point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimary"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -25,57 +106,48 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="20dp"
 
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:background="@drawable/circular"
-                app:backgroundTint="@color/black"
-                tools:layout_editor_absoluteX="30dp"
-                tools:layout_editor_absoluteY="335dp" />
 
-            <Button
-                android:id="@+id/btn2"
+            <ImageButton
+                android:id="@+id/power"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@drawable/circular"
+                app:backgroundTint="#fdeaae"
+                android:src="@drawable/ic_baseline_settings_power_24"
                 android:layout_marginStart="@dimen/_10sdp"
                 tools:layout_editor_absoluteX="30dp"
                 tools:layout_editor_absoluteY="335dp" />
 
-            <Button
-                android:id="@+id/btn3"
+            <ImageButton
+                android:id="@+id/rc"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@drawable/circular"
+                app:backgroundTint="#bdc3dd"
+                android:src="@drawable/ic_baseline_recycling_24"
                 android:layout_marginStart="@dimen/_10sdp"
                 tools:layout_editor_absoluteX="30dp"
                 tools:layout_editor_absoluteY="335dp" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/transport"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@drawable/circular"
                 android:layout_marginStart="@dimen/_10sdp"
-                app:backgroundTint="@color/colorAccent"
+                android:layout_marginEnd="@dimen/_10sdp"
+
+                android:background="@drawable/circular"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/ic_baseline_electric_bike_24"
+
+                app:backgroundTint="#e3e0c0"
                 tools:layout_editor_absoluteX="30dp"
                 tools:layout_editor_absoluteY="335dp" />
-
-            <Button
-                android:id="@+id/btn5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circular"
-                android:layout_marginStart="@dimen/_10sdp"
-                tools:layout_editor_absoluteX="30dp"
-                tools:layout_editor_absoluteY="335dp" />
-
 
         </LinearLayout>
     </RelativeLayout>

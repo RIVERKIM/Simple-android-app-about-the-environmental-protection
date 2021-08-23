@@ -1,6 +1,7 @@
 package com.example.teama.core.platform
 
 import android.os.Bundle
+import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ abstract class BaseActivity:AppCompatActivity() {
 //        setSupportActionBar(toolbar)
 
         addFragment(savedInstanceState)
+
     }
 
     private fun addFragment(savedInstanceState: Bundle?) =

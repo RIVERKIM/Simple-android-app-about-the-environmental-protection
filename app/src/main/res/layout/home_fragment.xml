@@ -9,6 +9,15 @@
         android:layout_height="match_parent"
         >
 
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/aa" />
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -26,6 +35,7 @@
             android:textSize="@dimen/_25sdp" />
 
         <LinearLayout
+            android:id="@+id/title_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
@@ -41,7 +51,13 @@
                 android:id="@+id/text1"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_80sdp"
-                android:background="@color/colorAccent" />
+                android:text="Zero store is a store that requires customers to bing reusable containers to the store.
+Since it doesn't use disposable containers, it can help stop global warming."
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:background="#e2e1be" />
 
             <View
                 android:layout_width="0dp"
@@ -53,8 +69,12 @@
                 android:id="@+id/text2"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_80sdp"
-
-                android:background="@color/colorAccent" />
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:text="In Korea, some of the ward offieces trade milk cartons into tissues, if you bring 35 1000ml cartoons, you get on toilet paper"
+                android:textSize="12sp"
+                android:background="#b5c7db
+" />
 
             <View
                 android:layout_width="0dp"
@@ -65,8 +85,13 @@
                 android:id="@+id/text3"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_80sdp"
-                android:gravity="right"
-                android:background="@color/colorAccent" />
+
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:paddingTop="5dp"
+                android:text="The paris agreement is an international treaty on climate change, made in 2015. It's goal is to limit the rise of temparature to 1.5'C"
+                android:background="#fce69f
+" />
 
         </LinearLayout>
 
@@ -74,15 +99,13 @@
             android:id="@+id/play_button"
             android:layout_width="100dp"
             android:layout_height="100dp"
-
-            android:layout_below="@+id/title"
-
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="312dp"
-            android:layout_marginTop="196dp"
+            android:layout_below="@+id/title_layout"
+            android:layout_alignEnd="@+id/title_layout"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="192dp"
             android:background="@drawable/circular"
             android:text="Play"
-            app:backgroundTint="@android:color/holo_green_dark" />
+            app:backgroundTint="#bcc1aa" />
     </RelativeLayout>
 
 </layout>
