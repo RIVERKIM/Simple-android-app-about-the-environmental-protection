@@ -32,6 +32,10 @@ class RecycleFragment: BaseFragment() {
         quiz = arrayOf(R.drawable.cc,R.drawable.p1,R.drawable.bb,R.drawable.cc2,R.drawable.p3,R.drawable.paper,R.drawable.cc3)
 
 
+        binding.rBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
         binding.rBtn1.setOnClickListener {
             onClick(it)
         }
@@ -46,8 +50,9 @@ class RecycleFragment: BaseFragment() {
 
     private fun onClick(v:View) {
 
-            var temp = 0
+        var temp = 1
 
+        if(idx!! <= 7) {
             if(v.tag == "r") {
                 temp = 1
             }else if(v.tag == 'g') {
@@ -64,21 +69,25 @@ class RecycleFragment: BaseFragment() {
 
             binding.pic.setBackgroundResource(quiz[idx!!])
 
-        idx = idx!! + 1
+            idx = idx!! + 1
+
+        }
 
 
         if(idx == 7) {
             val builder = AlertDialog.Builder(requireContext())
 
             builder.setMessage(count.toString() + " Correct!!")
-                    .setPositiveButton("Go to Main", DialogInterface.OnClickListener {
+                    .setPositiveButton("Go To Main", DialogInterface.OnClickListener {
                         dialog, id ->
 
                         AndroidApplication.point = AndroidApplication.point!! + 10 * count!!
 
+                        AndroidApplication.money = AndroidApplication.money!! + 10 * count!!
+
                         val intent = MainActivity.callIntent(requireContext())
                         startActivity(intent)
-                    })
+                    }).setCancelable(false)
 
             builder.create()
             builder.show()

@@ -11,6 +11,30 @@
         android:background="@drawable/tttt"
         >
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/logOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="Log Out"
+                app:backgroundTint="#b5c7db"
+                />
+
+            <Button
+                android:id="@+id/myPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="My Page"
+                app:backgroundTint="#b5c7db"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -133,6 +157,19 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 tools:layout_editor_absoluteX="30dp"
                 tools:layout_editor_absoluteY="335dp" />
+
+
+            <ImageButton
+                android:id="@+id/quiz"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circular"
+                app:backgroundTint="#A0D468"
+                android:src="@drawable/ic_baseline_quiz_24"
+                android:layout_marginStart="@dimen/_10sdp"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="335dp" />
+
 
             <ImageButton
                 android:id="@+id/transport"

@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import com.example.teama.AndroidApplication
 import com.example.teama.R
 import com.example.teama.core.platform.BaseFragment
@@ -34,6 +36,10 @@ class EnergyFragment:BaseFragment() {
 
         falseCount = 4
 
+
+        binding.energyBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
 
 
         binding.imgBtn1.setOnClickListener {
@@ -71,26 +77,42 @@ class EnergyFragment:BaseFragment() {
     fun onClick(v: View,idx: Int) {
         if(state[idx] == true) {
             state[idx] = false
-            v.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
+            v.setBackgroundResource(R.drawable.off)
             falseCount = falseCount!! + 1
         }else {
             state[idx] = true
-            v.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            v.setBackgroundResource(R.drawable.on)
             falseCount = falseCount!! - 1
         }
         Log.d("dfdf", falseCount.toString())
         if(falseCount!! == 0) {
             val builder = AlertDialog.Builder(requireContext())
 
-            builder.setMessage("Finish!!")
-                    .setPositiveButton("Go to Main", DialogInterface.OnClickListener {
+            builder.setMessage("Win. Get Point!!")
+                    .setPositiveButton("Go To Main", DialogInterface.OnClickListener {
                         dialog, id ->
 
-                        AndroidApplication.point = AndroidApplication.point!! + 50
-
+                        AndroidApplication.point = AndroidApplication.point!! + 30
+                        AndroidApplication.money = AndroidApplication.money!! + 30
                         val intent = MainActivity.callIntent(requireContext())
                         startActivity(intent)
-                    })
+                    }).setCancelable(false)
+
+            builder.create()
+            builder.show()
+        }else if(falseCount == 8) {
+            val builder = AlertDialog.Builder(requireContext())
+
+            builder.setMessage("Fail. Lose Point!!")
+                .setPositiveButton("Go To Main", DialogInterface.OnClickListener {
+                        dialog, id ->
+
+                    if(AndroidApplication.point!! > 30) AndroidApplication.point = AndroidApplication.point!! - 30
+                    else AndroidApplication.point = 0
+
+                    val intent = MainActivity.callIntent(requireContext())
+                    startActivity(intent)
+                }).setCancelable(false)
 
             builder.create()
             builder.show()

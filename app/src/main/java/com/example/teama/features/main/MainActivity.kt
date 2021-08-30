@@ -12,5 +12,9 @@ class MainActivity: BaseActivity() {
         fun callIntent(context: Context) = Intent(context, MainActivity::class.java)
     }
 
+    override fun onBackPressed() {
+
+    }
+
     override fun fragment() = MainFragment()
 }

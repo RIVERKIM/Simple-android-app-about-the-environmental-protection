@@ -129,4 +129,6 @@ dependencies {
     implementation 'com.github.Gruzer:simple-gauge-android:0.3.1'
 
 
+    implementation('androidx.gridlayout:gridlayout:1.0.0')
+
 }

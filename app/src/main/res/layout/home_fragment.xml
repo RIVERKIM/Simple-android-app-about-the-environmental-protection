@@ -7,6 +7,7 @@
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         >
 
         <ImageView
@@ -14,98 +15,108 @@
             android:layout_height="80dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/aa" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="@dimen/_110sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_110sdp"
-            android:text="Protect our Green Earth"
-            android:textAlignment="center"
-            android:background="@drawable/border_box"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_25sdp" />
+            android:layout_alignParentTop="true"
+
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_baseline_exit_to_app_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/title"
+            android:gravity="center">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="Protect our Green Earth"
+                android:textAlignment="center"
+                android:background="@drawable/border_box"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25sdp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/title_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginEnd="104dp"
-            android:orientation="horizontal"
-            >
+            android:layout_below="@+id/title"
+            android:gravity="center"
+            android:layout_marginTop="60dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_80sdp"
-                android:text="Zero store is a store that requires customers to bing reusable containers to the store.
-Since it doesn't use disposable containers, it can help stop global warming."
+                android:background="#e2e1be"
                 android:paddingTop="5dp"
                 android:paddingBottom="10dp"
-                android:textSize="12sp"
+                android:text="Zero store is a store that requires customers to bing reusable containers to the store.
+Since it doesn't use disposable containers, it can help stop global warming."
                 android:textAlignment="center"
-                android:background="#e2e1be" />
+                android:textSize="12sp" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                />
+
 
             <TextView
                 android:id="@+id/text2"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_80sdp"
+                android:background="#b5c7db"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
                 android:paddingTop="5dp"
-                android:textAlignment="center"
                 android:text="In Korea, some of the ward offieces trade milk cartons into tissues, if you bring 35 1000ml cartoons, you get on toilet paper"
-                android:textSize="12sp"
-                android:background="#b5c7db
-" />
+                android:textAlignment="center"
+                android:textSize="12sp" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                />
+
+
             <TextView
                 android:id="@+id/text3"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_80sdp"
 
-                android:textSize="12sp"
-                android:textAlignment="center"
+                android:background="#fce69f
+"
                 android:paddingTop="5dp"
                 android:text="The paris agreement is an international treaty on climate change, made in 2015. It's goal is to limit the rise of temparature to 1.5'C"
-                android:background="#fce69f
-" />
+                android:textAlignment="center"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/play_button"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_below="@+id/title_layout"
-            android:layout_alignEnd="@+id/title_layout"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="192dp"
-            android:background="@drawable/circular"
-            android:text="Play"
-            app:backgroundTint="#bcc1aa" />
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/play_button"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/circular"
+                android:text="Play"
+                app:backgroundTint="#bcc1aa" />
+
+        </LinearLayout>
     </RelativeLayout>
 
 </layout>

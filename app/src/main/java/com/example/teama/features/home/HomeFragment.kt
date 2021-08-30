@@ -4,10 +4,12 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.app.ActivityCompat
 import com.example.teama.AndroidApplication
 import com.example.teama.R
 import com.example.teama.core.platform.BaseFragment
@@ -35,6 +37,9 @@ class HomeFragment: BaseFragment() {
     ): View? {
         binding = HomeFragmentBinding.inflate(inflater, container, false)
 
+        database = RecycleDatabase.getInstance(AndroidApplication.getContext()).recycleDatabaseDao()
+
+
         // navigate to MainActivity
         binding.playButton.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
@@ -44,7 +49,7 @@ class HomeFragment: BaseFragment() {
             val view = inflater.findViewById<EditText>(R.id.username)
 
 
-            database = RecycleDatabase.getInstance(AndroidApplication.getContext()).recycleDatabaseDao()
+
 
             builder.setView(inflater)
                     .setPositiveButton("Login", DialogInterface.OnClickListener { dialog, id ->
@@ -60,7 +65,7 @@ class HomeFragment: BaseFragment() {
                                 var info =  database.get(username)
 
                                 if(info == null) {
-                                    val new = Recycle(AndroidApplication.user!!, 100.0, 100, 100)
+                                    val new = Recycle(AndroidApplication.user!!, 100.0, 50, 100)
 
                                     database.insert(new)
 
@@ -85,6 +90,12 @@ class HomeFragment: BaseFragment() {
 
             builder.create()
             builder.show()
+        }
+
+        binding.exit.setOnClickListener {
+
+            ActivityCompat.finishAffinity(requireActivity())
+            android.os.Process.killProcess(android.os.Process.myPid()); // 앱 프로세스 종료
         }
 
 

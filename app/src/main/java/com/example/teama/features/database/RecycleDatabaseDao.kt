@@ -23,4 +23,7 @@ interface RecycleDatabaseDao {
     @Query("delete from recycle")
     suspend fun clear()
 
+    @Query("delete from recycle where userId= :uid")
+    suspend fun delete(uid: String)
+
 }

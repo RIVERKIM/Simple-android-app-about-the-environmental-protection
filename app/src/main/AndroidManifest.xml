@@ -38,6 +38,14 @@
             android:screenOrientation="landscape">
 
         </activity>
+        <activity android:name=".features.recycle2.Recycle2Activity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".features.myPage.MyPageActivity">
+
+        </activity>
+
 
 
 

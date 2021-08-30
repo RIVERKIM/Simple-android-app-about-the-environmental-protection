@@ -1,7 +1,10 @@
 package com.example.teama.core.platform
 
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -13,6 +16,14 @@ abstract class BaseActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+
+        if(supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
+
 //        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 //        setSupportActionBar(toolbar)
 
@@ -22,6 +33,7 @@ abstract class BaseActivity:AppCompatActivity() {
 
     private fun addFragment(savedInstanceState: Bundle?) =
         savedInstanceState ?: supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, fragment()).commit()
+
 
     abstract fun fragment(): Fragment
 

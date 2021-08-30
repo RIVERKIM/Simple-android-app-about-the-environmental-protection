@@ -23,13 +23,13 @@ import com.google.android.material.snackbar.Snackbar
 class TransportFragment: BaseFragment() {
 
     private val WALK_MONEY = 0
-    private val WALK_POINT = 200
+    private val WALK_POINT = 50
 
     private val BIKE_MONEY = 50
-    private val BIKE_POINT = 100
+    private val BIKE_POINT = 0
 
-    private val CAR_MONEY = 200
-    private val CAR_POINT = 20
+    private val CAR_MONEY = 100
+    private val CAR_POINT = -30
 
     private lateinit var binding: TransportFragmentBinding
 
@@ -74,7 +74,9 @@ class TransportFragment: BaseFragment() {
         binding.car.setOnClickListener {
             if(AndroidApplication.money!! >= CAR_MONEY) {
                 AndroidApplication.money = AndroidApplication.money!! - CAR_MONEY
-                AndroidApplication.point = AndroidApplication.point!! + CAR_POINT
+                if(AndroidApplication.point!! > 30)
+                    AndroidApplication.point = AndroidApplication.point!! + CAR_POINT
+                else AndroidApplication.point = 0
                 onClick(it)
             }else {
                 Snackbar.make(requireView(), "Not enough money", Snackbar.LENGTH_SHORT).show()
@@ -115,10 +117,11 @@ class TransportFragment: BaseFragment() {
 
 
         builder.setView(view)
-            .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, id ->
+            .setPositiveButton("Go to main", DialogInterface.OnClickListener { dialog, id ->
                 val intent = MainActivity.callIntent(requireContext())
                 startActivity(intent)
-            })
+            }).setCancelable(false)
+
 
         builder.create()
 
